@@ -47,7 +47,7 @@ For more detail, please see the tools/hex-crypt folder.
 #### CRC32 Checksum verification:
 Before bootloader jumps to main application, it calculates the app's CRC32 checksum and compares it to the CRC32 calculated at build time (which is stored at end of flash). Jump to app is only performed in case of valid checksum.
 1. In btldr_config.h, set BTLDR_ACT_CksNotVld to 1.
-2. Use Keil to build the project, the bootloader size should be under 16KB (STM32_MSD_BTLDR_CRC32.hex).
+2. Use CMake to build the project, the bootloader size should be under 16KB (STM32_MSD_BTLDR_CRC32.hex).
 3. Execute tools/crc-calc/add_crc32.bat to generate new hex file (CRC checksum is placed at last 32bit block of Flash).
 
 #### Enable Bootloader from Application

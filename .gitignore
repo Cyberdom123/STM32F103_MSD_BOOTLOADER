@@ -8,3 +8,4 @@
 *.dep
 *.htm
 *.lnp
+*build/
