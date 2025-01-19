@@ -72,7 +72,7 @@ uint32_t crc32_calculate(const uint8_t *data, size_t len)
 	LL_AHB1_GRP1_DisableClock(LL_AHB1_GRP1_PERIPH_CRC);
 	
   return swap_uint32(temp.ui32); //now the output is compatible with windows/winzip/winrar
-};
+}
 
 
 /***************************************

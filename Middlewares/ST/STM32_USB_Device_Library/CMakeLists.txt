@@ -14,10 +14,14 @@ target_link_libraries(stm32_usb_device
   stm32f1xxHal
 )
 
-target_compile_definitions(stm32_usb_device PUBLIC 
+target_compile_definitions(stm32_usb_device PRIVATE 
   USE_HAL_DRIVER 
   STM32F103xB
   $<$<CONFIG:Debug>:DEBUG>
+)
+
+target_compile_options(stm32_usb_device PRIVATE
+  -Wno-unused-parameter
 )
 
 target_include_directories(stm32_usb_device PUBLIC

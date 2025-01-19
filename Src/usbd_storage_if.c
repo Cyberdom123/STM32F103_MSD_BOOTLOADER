@@ -101,7 +101,7 @@
 
 /* USER CODE BEGIN INQUIRY_DATA_FS */
 /** USB Mass storage Standard Inquiry Data. */
-const int8_t STORAGE_Inquirydata_FS[] = {/* 36 */
+const uint8_t STORAGE_Inquirydata_FS[] = {/* 36 */
   
   /* LUN 0 */
   0x00,
@@ -208,6 +208,7 @@ USBD_StorageTypeDef USBD_Storage_Interface_fops_FS =
 int8_t STORAGE_Init_FS(uint8_t lun)
 {
   /* USER CODE BEGIN 2 */
+  (void)lun;
   return (USBD_OK);
   /* USER CODE END 2 */
 }
@@ -222,6 +223,7 @@ int8_t STORAGE_Init_FS(uint8_t lun)
 int8_t STORAGE_GetCapacity_FS(uint8_t lun, uint32_t *block_num, uint16_t *block_size)
 {
   /* USER CODE BEGIN 3 */
+  (void)lun;
   *block_num  = STORAGE_BLK_NBR;
   *block_size = STORAGE_BLK_SIZ;
   return (USBD_OK);
@@ -236,6 +238,7 @@ int8_t STORAGE_GetCapacity_FS(uint8_t lun, uint32_t *block_num, uint16_t *block_
 int8_t STORAGE_IsReady_FS(uint8_t lun)
 {
   /* USER CODE BEGIN 4 */
+  (void)lun;
   return (USBD_OK);
   /* USER CODE END 4 */
 }
@@ -248,6 +251,7 @@ int8_t STORAGE_IsReady_FS(uint8_t lun)
 int8_t STORAGE_IsWriteProtected_FS(uint8_t lun)
 {
   /* USER CODE BEGIN 5 */
+  (void)lun;
   return (USBD_OK);
   /* USER CODE END 5 */
 }
@@ -260,6 +264,7 @@ int8_t STORAGE_IsWriteProtected_FS(uint8_t lun)
 int8_t STORAGE_Read_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len)
 {
   /* USER CODE BEGIN 6 */
+  (void)lun;
   _STORAGE_ReadBlocks((uint32_t *)buf, (uint64_t)(blk_addr * STORAGE_BLK_SIZ), STORAGE_BLK_SIZ, blk_len);
   return (USBD_OK);
   /* USER CODE END 6 */
@@ -273,6 +278,7 @@ int8_t STORAGE_Read_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t bl
 int8_t STORAGE_Write_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len)
 {
   /* USER CODE BEGIN 7 */
+  (void)lun;
   _STORAGE_WriteBlocks((uint32_t *)buf, (uint64_t)(blk_addr * STORAGE_BLK_SIZ), STORAGE_BLK_SIZ, blk_len);
   return (USBD_OK);
   /* USER CODE END 7 */

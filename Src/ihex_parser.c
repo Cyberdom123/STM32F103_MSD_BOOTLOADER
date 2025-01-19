@@ -203,10 +203,6 @@ bool ihex_parser(const uint8_t *steambuf, uint32_t size)
             {
                 state = CHECKSUM_0_STATE;
             }
-            else if (byte_count > sizeof(data))
-            {
-                return false;
-            }
             else
             {
                 ++state;

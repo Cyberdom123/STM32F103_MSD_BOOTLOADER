@@ -306,6 +306,7 @@ static void _fat32_read_dir_entry(uint8_t *b)
 // Addr : 0x0040_0600
 static void _fat32_read_btldr_desc(uint8_t *b, uint32_t addr)
 {
+    (void)addr;
     memcpy(b, btldr_desc, sizeof(btldr_desc));
 }
 
@@ -319,6 +320,7 @@ static void _fat32_read_firmware(uint8_t *b, uint32_t addr)
     
     memcpy(b, (void*)(APP_ADDR + offset), total_size);
 #else
+    (void)addr;
     memset(b, 0x00, FAT32_SECTOR_SIZE);
 #endif
 }
