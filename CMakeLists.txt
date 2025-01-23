@@ -22,6 +22,8 @@ set(LINKER_SCRIPT_NAME STM32F103C8TX_FLASH.ld)
 
 include(gcc-arm-none-eabi.cmake)
 
+include(functions.cmake)
+
 project(${CMAKE_PROJECT_NAME})
 
 enable_language(C CXX ASM)
@@ -58,3 +60,5 @@ target_link_libraries(${PROJECT_NAME}
   stm32f1xxHal
   stm32_usb_device
 )
+
+target_stlink_flash(${CMAKE_PROJECT_NAME})
